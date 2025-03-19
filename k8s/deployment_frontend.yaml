@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: major-frontend-app
+  namespace: major-project
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: major-frontend-app
+  template:
+    metadata:
+      labels:
+        app: major-frontend-app
+    spec:
+      containers:
+      - name: major-frontend-app
+        image: krishala/major-frontend:v1
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: major-frontend-service
+  namespace: major-project
+spec:
+  type: NodePort
+  selector:
+    app: major-frontend-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 30081
