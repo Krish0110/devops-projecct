@@ -7,9 +7,9 @@ pipeline {
         KUBECONFIG = credentials('kubeconfig')  // Add Kubernetes config in Jenkins credentials
     }
 
-    // triggers {
-    //     pollSCM '*/5 * * * *'
-    // }
+    triggers {
+        pollSCM '*/5 * * * *'
+    }
 
     stages {
         stage ('Checkout') {
