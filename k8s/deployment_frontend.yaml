@@ -16,6 +16,7 @@ spec:
       containers:
       - name: major-frontend-app
         image: krishala/major-frontend:<TAG>
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
 ---
