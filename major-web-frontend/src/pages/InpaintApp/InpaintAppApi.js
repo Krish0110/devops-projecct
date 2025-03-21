@@ -14,7 +14,7 @@ export const postImageApi = async (path, imageFile) => {
   console.log("formdata", Array.from(formData))
 
   try {
-    const response = await apiCall.post(baseUrl + path, formData, responseType);
+    const response = await apiCall.postReview(baseUrl + path, formData, responseType);
     console.log('Response:', response);
     return response;
   } catch (error) {

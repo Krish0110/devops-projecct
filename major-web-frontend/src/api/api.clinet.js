@@ -1,17 +1,28 @@
-import axios from 'axios'
+import axios from 'axios';
 
-const post = async (url, body, responseType) => {
-  console.log("URL from config",url)
+const postReview = async (url, body, responseType = 'json') => {
+  console.log("Posting review to URL:", url);
+  
   try {
-    const response = await axios.post(url, body,{
-      responseType: responseType,
+    const response = await axios.post(url, body, {
+      responseType: responseType, // Optional depending on the response
     });
 
-    console.log("Image upload response", response);
+    console.log("Review post response:", response);
     return response.data;
- } catch (error) {
-  console.log('Error uploading file:', error.message)
- }
+  } catch (error) {
+    console.log('Error posting review:', error.message);
+  }
 };
 
-export {post};
+const getReviews = async (url) => {
+  try {
+    const response = await axios.get(url);
+    console.log("Reviews fetched successfully", response.data);
+    return response.data;  // Return the reviews data
+  } catch (error) {
+    console.log('Error fetching reviews:', error.message);
+  }
+};
+
+export { postReview, getReviews };

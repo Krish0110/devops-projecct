@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import AboutUs from './pages/AboutUs';
 import InpaintApp from './pages/InpaintApp/InpaintApp';
 import ProjectInfo from './pages/ProjectInfo';
+import GetReview from './pages/GetReview/GetReview';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/inpaint-app" element={<InpaintApp />} />
         <Route path="/project-info" element={<ProjectInfo />} />
+        <Route path="/provide-review" element={<GetReview />} />
       </Routes>
     </Router>
   );

@@ -36,6 +36,13 @@ const Header = () => {
           >
             Restore Image
           </NavLink>
+
+          <NavLink
+            to="/provide-review"
+            activeClassName="selected"
+          >
+            Review
+          </NavLink>
         </LinkContainer>
       </div>
     </HeaderContainer>
