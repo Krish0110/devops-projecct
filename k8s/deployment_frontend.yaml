@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: major-frontend-app
-        image: krishala/major-frontend:v1
+        image: krishala/major-frontend:<TAG>
         ports:
         - containerPort: 80
 ---

@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKER_IMAGE = "krishala/my-major-frontend"
-        DOCKER_TAG = "latest"
+        DOCKER_TAG = "${BUILD_NUMBER}"
         KUBECONFIG = credentials('kubeconfig')  // Add Kubernetes config in Jenkins credentials
     }
 
@@ -49,6 +49,8 @@ pipeline {
         stage('Deploy to Kubernetes') {
             steps {
                 script {
+                    sh "sed -i 's/<TAG>/${BUILD_NUMBER}/' k8s/deployment_frontend.yaml"
+
                     sh "kubectl apply -f k8s/deployment_frontend.yaml"
                     sh "kubectl apply -f k8s/ingress_frontend.yaml"
                 }
